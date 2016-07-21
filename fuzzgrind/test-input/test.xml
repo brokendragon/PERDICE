@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>
+	<option>
+		<keyword type="opaque">InputSlot</keyword>
+		<text>Media Source</text>
+		<order type="real">10.000000</order>
+	</option>
+	<integer>123</integer>
+</group>

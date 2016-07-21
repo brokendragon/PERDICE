@@ -1,0 +1,28 @@
+23/01/2014  Version 0.2.2
+-------------------------
+* A message indicating that the file to be compressed is being
+scanned has been added so the user does not get desperated when
+compressing large files.
+
+* The assembly versions of CRC and checksum have been updated to be
+compatible with 64-bit processors.
+
+* The CRC assembly algorithm now compiles flawlessly. Prior to this
+change, the compiler might think that the CRC look-up table was not
+used and hence it might remove it, provoking an error as a result.
+
+* Compiled on a 64-bit system, the length of the `u32' data type
+(defined in tipos.h) was 8 bytes. This bug has been corrected and
+now `u32' is always 4 bytes whether in a 32 or 64-bit environment.
+
+* On little endian machines, the checksum was incorrectly stored.
+This prevented that machines with different endian could share a
+compressed file with a checksum. The header version field has been
+marked as 0x11 (interpret it as 1.1) to distinguish the buggy files
+from the new ones.
+
+* Corrected some issues related to the progress indicator.
+
+
+18/03/2007  Version 0.2.1: First public release
+-----------------------------------------------

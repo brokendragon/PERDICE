@@ -1,0 +1,7 @@
+Some ideas come to mind:
+
+- Make code compatible with Windows/DOS
+- Use MMX instructions for CRC and checksum
+- Add a CRC-32
+- Create a Huffman library
+- ...

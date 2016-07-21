@@ -1,0 +1,984 @@
+make  install-recursive
+make[1]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'
+Making install in include
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/include'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/include'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_basics.h' '/usr/local/include/valgrind/pub_tool_basics.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_basics_asm.h' '/usr/local/include/valgrind/pub_tool_basics_asm.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_aspacehl.h' '/usr/local/include/valgrind/pub_tool_aspacehl.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_aspacemgr.h' '/usr/local/include/valgrind/pub_tool_aspacemgr.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_clientstate.h' '/usr/local/include/valgrind/pub_tool_clientstate.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_clreq.h' '/usr/local/include/valgrind/pub_tool_clreq.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_cpuid.h' '/usr/local/include/valgrind/pub_tool_cpuid.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_debuginfo.h' '/usr/local/include/valgrind/pub_tool_debuginfo.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_errormgr.h' '/usr/local/include/valgrind/pub_tool_errormgr.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_execontext.h' '/usr/local/include/valgrind/pub_tool_execontext.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_gdbserver.h' '/usr/local/include/valgrind/pub_tool_gdbserver.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_poolalloc.h' '/usr/local/include/valgrind/pub_tool_poolalloc.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_hashtable.h' '/usr/local/include/valgrind/pub_tool_hashtable.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcbase.h' '/usr/local/include/valgrind/pub_tool_libcbase.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcassert.h' '/usr/local/include/valgrind/pub_tool_libcassert.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcfile.h' '/usr/local/include/valgrind/pub_tool_libcfile.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcprint.h' '/usr/local/include/valgrind/pub_tool_libcprint.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcproc.h' '/usr/local/include/valgrind/pub_tool_libcproc.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcsetjmp.h' '/usr/local/include/valgrind/pub_tool_libcsetjmp.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_libcsignal.h' '/usr/local/include/valgrind/pub_tool_libcsignal.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_machine.h' '/usr/local/include/valgrind/pub_tool_machine.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_mallocfree.h' '/usr/local/include/valgrind/pub_tool_mallocfree.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_options.h' '/usr/local/include/valgrind/pub_tool_options.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_oset.h' '/usr/local/include/valgrind/pub_tool_oset.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_redir.h' '/usr/local/include/valgrind/pub_tool_redir.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_replacemalloc.h' '/usr/local/include/valgrind/pub_tool_replacemalloc.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_seqmatch.h' '/usr/local/include/valgrind/pub_tool_seqmatch.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_signals.h' '/usr/local/include/valgrind/pub_tool_signals.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_sparsewa.h' '/usr/local/include/valgrind/pub_tool_sparsewa.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_stacktrace.h' '/usr/local/include/valgrind/pub_tool_stacktrace.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_threadstate.h' '/usr/local/include/valgrind/pub_tool_threadstate.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_tooliface.h' '/usr/local/include/valgrind/pub_tool_tooliface.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_vki.h' '/usr/local/include/valgrind/pub_tool_vki.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_vkiscnums.h' '/usr/local/include/valgrind/pub_tool_vkiscnums.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_vkiscnums_asm.h' '/usr/local/include/valgrind/pub_tool_vkiscnums_asm.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_wordfm.h' '/usr/local/include/valgrind/pub_tool_wordfm.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'pub_tool_xarray.h' '/usr/local/include/valgrind/pub_tool_xarray.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'valgrind.h' '/usr/local/include/valgrind/valgrind.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-linux.h' '/usr/local/include/valgrind/vki/vki-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-darwin.h' '/usr/local/include/valgrind/vki/vki-darwin.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-amd64-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-amd64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-ppc32-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-ppc32-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-ppc64-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-ppc64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-x86-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-x86-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-arm-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-arm-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-posixtypes-s390x-linux.h' '/usr/local/include/valgrind/vki/vki-posixtypes-s390x-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-amd64-linux.h' '/usr/local/include/valgrind/vki/vki-amd64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-ppc32-linux.h' '/usr/local/include/valgrind/vki/vki-ppc32-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-ppc64-linux.h' '/usr/local/include/valgrind/vki/vki-ppc64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-x86-linux.h' '/usr/local/include/valgrind/vki/vki-x86-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-arm-linux.h' '/usr/local/include/valgrind/vki/vki-arm-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-s390x-linux.h' '/usr/local/include/valgrind/vki/vki-s390x-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-amd64-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-amd64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-ppc32-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-ppc32-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-ppc64-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-ppc64-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-x86-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-x86-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-arm-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-arm-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-s390x-linux.h' '/usr/local/include/valgrind/vki/vki-scnums-s390x-linux.h'
+ /bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -c -m 644 'vki/vki-scnums-darwin.h' '/usr/local/include/valgrind/vki/vki-scnums-darwin.h'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/include'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/include'
+Making install in VEX
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+make  install-am
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+test -z "/usr/local/lib/valgrind" || /bin/mkdir -p "/usr/local/lib/valgrind"
+ /usr/bin/install -c -m 644 'libvex-amd64-linux.a' '/usr/local/lib/valgrind/libvex-amd64-linux.a'
+ /usr/bin/install -c -m 644 'libvex-x86-linux.a' '/usr/local/lib/valgrind/libvex-x86-linux.a'
+ ranlib '/usr/local/lib/valgrind/libvex-amd64-linux.a'
+ ranlib '/usr/local/lib/valgrind/libvex-x86-linux.a'
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'pub/libvex.h' '/usr/local/include/valgrind/libvex.h'
+ /usr/bin/install -c -m 644 'pub/libvex_basictypes.h' '/usr/local/include/valgrind/libvex_basictypes.h'
+ /usr/bin/install -c -m 644 'pub/libvex_emwarn.h' '/usr/local/include/valgrind/libvex_emwarn.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_offsets.h' '/usr/local/include/valgrind/libvex_guest_offsets.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_x86.h' '/usr/local/include/valgrind/libvex_guest_x86.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_amd64.h' '/usr/local/include/valgrind/libvex_guest_amd64.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_ppc32.h' '/usr/local/include/valgrind/libvex_guest_ppc32.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_ppc64.h' '/usr/local/include/valgrind/libvex_guest_ppc64.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_arm.h' '/usr/local/include/valgrind/libvex_guest_arm.h'
+ /usr/bin/install -c -m 644 'pub/libvex_guest_s390x.h' '/usr/local/include/valgrind/libvex_guest_s390x.h'
+ /usr/bin/install -c -m 644 'pub/libvex_s390x_common.h' '/usr/local/include/valgrind/libvex_s390x_common.h'
+ /usr/bin/install -c -m 644 'pub/libvex_ir.h' '/usr/local/include/valgrind/libvex_ir.h'
+ /usr/bin/install -c -m 644 'pub/libvex_trc_values.h' '/usr/local/include/valgrind/libvex_trc_values.h'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/VEX'
+Making install in coregrind
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+make  install-am
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+mkdir -p ../.in_place; \
+	for f in vgpreload_core-amd64-linux.so vgpreload_core-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../coregrind/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../coregrind/$f.dSYM ../.in_place; \
+	done
+mkdir -p ../.in_place; \
+	for f in m_gdbserver/32bit-core-valgrind-s1.xml m_gdbserver/32bit-core-valgrind-s2.xml m_gdbserver/32bit-core.xml m_gdbserver/32bit-linux-valgrind-s1.xml m_gdbserver/32bit-linux-valgrind-s2.xml m_gdbserver/32bit-linux.xml m_gdbserver/32bit-sse-valgrind-s1.xml m_gdbserver/32bit-sse-valgrind-s2.xml m_gdbserver/32bit-sse.xml m_gdbserver/64bit-core-valgrind-s1.xml m_gdbserver/64bit-core-valgrind-s2.xml m_gdbserver/64bit-core.xml m_gdbserver/64bit-linux-valgrind-s1.xml m_gdbserver/64bit-linux-valgrind-s2.xml m_gdbserver/64bit-linux.xml m_gdbserver/64bit-sse-valgrind-s1.xml m_gdbserver/64bit-sse-valgrind-s2.xml m_gdbserver/64bit-sse.xml m_gdbserver/amd64-coresse-valgrind.xml m_gdbserver/amd64-linux-valgrind.xml m_gdbserver/arm-core-valgrind-s1.xml m_gdbserver/arm-core-valgrind-s2.xml m_gdbserver/arm-core.xml m_gdbserver/arm-vfpv3-valgrind-s1.xml m_gdbserver/arm-vfpv3-valgrind-s2.xml m_gdbserver/arm-vfpv3.xml m_gdbserver/arm-with-vfpv3-valgrind.xml m_gdbserver/arm-with-vfpv3.xml m_gdbserver/i386-coresse-valgrind.xml m_gdbserver/i386-linux-valgrind.xml m_gdbserver/power64-core-valgrind-s1.xml m_gdbserver/power64-core-valgrind-s2.xml m_gdbserver/power64-core.xml m_gdbserver/power64-linux-valgrind-s1.xml m_gdbserver/power64-linux-valgrind-s2.xml m_gdbserver/power64-linux.xml m_gdbserver/power-altivec-valgrind-s1.xml m_gdbserver/power-altivec-valgrind-s2.xml m_gdbserver/power-altivec.xml m_gdbserver/power-core.xml m_gdbserver/power-fpu-valgrind-s1.xml m_gdbserver/power-fpu-valgrind-s2.xml m_gdbserver/power-fpu.xml m_gdbserver/power-linux-valgrind-s1.xml m_gdbserver/power-linux-valgrind-s2.xml m_gdbserver/power-linux.xml m_gdbserver/powerpc-altivec32l-valgrind.xml m_gdbserver/powerpc-altivec32l.xml m_gdbserver/powerpc-altivec64l-valgrind.xml m_gdbserver/powerpc-altivec64l.xml; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../coregrind/$f ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+  /usr/bin/install -c 'valgrind' '/usr/local/bin/valgrind'
+  /usr/bin/install -c 'vgdb' '/usr/local/bin/vgdb'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in vgpreload_core-amd64-linux.so vgpreload_core-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+test -z "/usr/local/lib/valgrind" || /bin/mkdir -p "/usr/local/lib/valgrind"
+ /usr/bin/install -c -m 644 'libcoregrind-amd64-linux.a' '/usr/local/lib/valgrind/libcoregrind-amd64-linux.a'
+ /usr/bin/install -c -m 644 'libcoregrind-x86-linux.a' '/usr/local/lib/valgrind/libcoregrind-x86-linux.a'
+ /usr/bin/install -c -m 644 'libreplacemalloc_toolpreload-amd64-linux.a' '/usr/local/lib/valgrind/libreplacemalloc_toolpreload-amd64-linux.a'
+ /usr/bin/install -c -m 644 'libreplacemalloc_toolpreload-x86-linux.a' '/usr/local/lib/valgrind/libreplacemalloc_toolpreload-x86-linux.a'
+ ranlib '/usr/local/lib/valgrind/libcoregrind-amd64-linux.a'
+ ranlib '/usr/local/lib/valgrind/libcoregrind-x86-linux.a'
+ ranlib '/usr/local/lib/valgrind/libreplacemalloc_toolpreload-amd64-linux.a'
+ ranlib '/usr/local/lib/valgrind/libreplacemalloc_toolpreload-x86-linux.a'
+test -z "/usr/local/share/valgrind" || /bin/mkdir -p "/usr/local/share/valgrind"
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-core-valgrind-s1.xml' '/usr/local/share/valgrind/32bit-core-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-core-valgrind-s2.xml' '/usr/local/share/valgrind/32bit-core-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-core.xml' '/usr/local/share/valgrind/32bit-core.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-linux-valgrind-s1.xml' '/usr/local/share/valgrind/32bit-linux-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-linux-valgrind-s2.xml' '/usr/local/share/valgrind/32bit-linux-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-linux.xml' '/usr/local/share/valgrind/32bit-linux.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-sse-valgrind-s1.xml' '/usr/local/share/valgrind/32bit-sse-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-sse-valgrind-s2.xml' '/usr/local/share/valgrind/32bit-sse-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/32bit-sse.xml' '/usr/local/share/valgrind/32bit-sse.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-core-valgrind-s1.xml' '/usr/local/share/valgrind/64bit-core-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-core-valgrind-s2.xml' '/usr/local/share/valgrind/64bit-core-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-core.xml' '/usr/local/share/valgrind/64bit-core.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-linux-valgrind-s1.xml' '/usr/local/share/valgrind/64bit-linux-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-linux-valgrind-s2.xml' '/usr/local/share/valgrind/64bit-linux-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-linux.xml' '/usr/local/share/valgrind/64bit-linux.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-sse-valgrind-s1.xml' '/usr/local/share/valgrind/64bit-sse-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-sse-valgrind-s2.xml' '/usr/local/share/valgrind/64bit-sse-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/64bit-sse.xml' '/usr/local/share/valgrind/64bit-sse.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/amd64-coresse-valgrind.xml' '/usr/local/share/valgrind/amd64-coresse-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/amd64-linux-valgrind.xml' '/usr/local/share/valgrind/amd64-linux-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-core-valgrind-s1.xml' '/usr/local/share/valgrind/arm-core-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-core-valgrind-s2.xml' '/usr/local/share/valgrind/arm-core-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-core.xml' '/usr/local/share/valgrind/arm-core.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-vfpv3-valgrind-s1.xml' '/usr/local/share/valgrind/arm-vfpv3-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-vfpv3-valgrind-s2.xml' '/usr/local/share/valgrind/arm-vfpv3-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-vfpv3.xml' '/usr/local/share/valgrind/arm-vfpv3.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-with-vfpv3-valgrind.xml' '/usr/local/share/valgrind/arm-with-vfpv3-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/arm-with-vfpv3.xml' '/usr/local/share/valgrind/arm-with-vfpv3.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/i386-coresse-valgrind.xml' '/usr/local/share/valgrind/i386-coresse-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/i386-linux-valgrind.xml' '/usr/local/share/valgrind/i386-linux-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-core-valgrind-s1.xml' '/usr/local/share/valgrind/power64-core-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-core-valgrind-s2.xml' '/usr/local/share/valgrind/power64-core-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-core.xml' '/usr/local/share/valgrind/power64-core.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-linux-valgrind-s1.xml' '/usr/local/share/valgrind/power64-linux-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-linux-valgrind-s2.xml' '/usr/local/share/valgrind/power64-linux-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power64-linux.xml' '/usr/local/share/valgrind/power64-linux.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-altivec-valgrind-s1.xml' '/usr/local/share/valgrind/power-altivec-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-altivec-valgrind-s2.xml' '/usr/local/share/valgrind/power-altivec-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-altivec.xml' '/usr/local/share/valgrind/power-altivec.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-core.xml' '/usr/local/share/valgrind/power-core.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-fpu-valgrind-s1.xml' '/usr/local/share/valgrind/power-fpu-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-fpu-valgrind-s2.xml' '/usr/local/share/valgrind/power-fpu-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-fpu.xml' '/usr/local/share/valgrind/power-fpu.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-linux-valgrind-s1.xml' '/usr/local/share/valgrind/power-linux-valgrind-s1.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-linux-valgrind-s2.xml' '/usr/local/share/valgrind/power-linux-valgrind-s2.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/power-linux.xml' '/usr/local/share/valgrind/power-linux.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/powerpc-altivec32l-valgrind.xml' '/usr/local/share/valgrind/powerpc-altivec32l-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/powerpc-altivec32l.xml' '/usr/local/share/valgrind/powerpc-altivec32l.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/powerpc-altivec64l-valgrind.xml' '/usr/local/share/valgrind/powerpc-altivec64l-valgrind.xml'
+ /usr/bin/install -c -m 644 'm_gdbserver/powerpc-altivec64l.xml' '/usr/local/share/valgrind/powerpc-altivec64l.xml'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/coregrind'
+Making install in .
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'
+mkdir -p ./.in_place
+rm -f ./.in_place/default.supp
+ln -s ../default.supp ./.in_place
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/local/lib/pkgconfig" || /bin/mkdir -p "/usr/local/lib/pkgconfig"
+ /usr/bin/install -c -m 644 'valgrind.pc' '/usr/local/lib/pkgconfig/valgrind.pc'
+test -z "/usr/local/share/valgrind" || /bin/mkdir -p "/usr/local/share/valgrind"
+ /usr/bin/install -c -m 644 'default.supp' '/usr/local/share/valgrind/default.supp'
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'config.h' '/usr/local/include/valgrind/config.h'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'
+Making install in memcheck
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+mkdir -p ../.in_place; \
+	for f in memcheck-amd64-linux memcheck-x86-linux vgpreload_memcheck-amd64-linux.so vgpreload_memcheck-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../memcheck/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../memcheck/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in memcheck-amd64-linux memcheck-x86-linux vgpreload_memcheck-amd64-linux.so vgpreload_memcheck-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'memcheck.h' '/usr/local/include/valgrind/memcheck.h'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+Making install in .
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+Making install in x86
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86'
+Making install in amd64
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64'
+Making install in linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/linux'
+Making install in x86-linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86-linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86-linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86-linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/x86-linux'
+Making install in amd64-linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64-linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64-linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64-linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests/amd64-linux'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/memcheck'
+Making install in cachegrind
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+mkdir -p ../.in_place; \
+	for f in cachegrind-amd64-linux cachegrind-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../cachegrind/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../cachegrind/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+  /usr/bin/install -c 'cg_merge' '/usr/local/bin/cg_merge'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+ /usr/bin/install -c 'cg_annotate' '/usr/local/bin/cg_annotate'
+ /usr/bin/install -c 'cg_diff' '/usr/local/bin/cg_diff'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in cachegrind-amd64-linux cachegrind-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+Making install in .
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+Making install in x86
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests/x86'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests/x86'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests/x86'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests/x86'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/cachegrind'
+Making install in callgrind
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+mkdir -p ../.in_place; \
+	for f in callgrind-amd64-linux callgrind-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../callgrind/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../callgrind/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+ /usr/bin/install -c 'callgrind_annotate' '/usr/local/bin/callgrind_annotate'
+ /usr/bin/install -c 'callgrind_control' '/usr/local/bin/callgrind_control'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in callgrind-amd64-linux callgrind-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'callgrind.h' '/usr/local/include/valgrind/callgrind.h'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+Making install in .
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/callgrind'
+Making install in massif
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+mkdir -p ../.in_place; \
+	for f in massif-amd64-linux massif-x86-linux vgpreload_massif-amd64-linux.so vgpreload_massif-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../massif/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../massif/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+ /usr/bin/install -c 'ms_print' '/usr/local/bin/ms_print'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in massif-amd64-linux massif-x86-linux vgpreload_massif-amd64-linux.so vgpreload_massif-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/massif'
+Making install in lackey
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+mkdir -p ../.in_place; \
+	for f in lackey-amd64-linux lackey-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../lackey/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../lackey/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in lackey-amd64-linux lackey-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/lackey'
+Making install in none
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+mkdir -p ../.in_place; \
+	for f in none-amd64-linux none-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../none/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../none/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in none-amd64-linux none-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+Making install in .
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+Making install in x86
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86'
+Making install in amd64
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/amd64'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/amd64'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/amd64'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/amd64'
+Making install in linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/linux'
+Making install in x86-linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86-linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86-linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86-linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests/x86-linux'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/none'
+Making install in helgrind
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+mkdir -p ../.in_place; \
+	for f in helgrind-amd64-linux helgrind-x86-linux vgpreload_helgrind-amd64-linux.so vgpreload_helgrind-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../helgrind/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../helgrind/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in helgrind-amd64-linux helgrind-x86-linux vgpreload_helgrind-amd64-linux.so vgpreload_helgrind-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'helgrind.h' '/usr/local/include/valgrind/helgrind.h'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/helgrind'
+Making install in drd
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+mkdir -p ../.in_place; \
+	for f in drd-amd64-linux drd-x86-linux vgpreload_drd-amd64-linux.so vgpreload_drd-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../drd/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../drd/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in drd-amd64-linux drd-x86-linux vgpreload_drd-amd64-linux.so vgpreload_drd-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+test -z "/usr/local/include/valgrind" || /bin/mkdir -p "/usr/local/include/valgrind"
+ /usr/bin/install -c -m 644 'drd.h' '/usr/local/include/valgrind/drd.h'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/drd'
+Making install in fuzzgrind
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+mkdir -p ../.in_place; \
+	for f in fuzzgrind-amd64-linux fuzzgrind-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../fuzzgrind/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../fuzzgrind/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in fuzzgrind-amd64-linux fuzzgrind-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/fuzzgrind'
+Making install in exp-sgcheck
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+mkdir -p ../.in_place; \
+	for f in exp-sgcheck-amd64-linux exp-sgcheck-x86-linux vgpreload_exp-sgcheck-amd64-linux.so vgpreload_exp-sgcheck-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../exp-sgcheck/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../exp-sgcheck/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in exp-sgcheck-amd64-linux exp-sgcheck-x86-linux vgpreload_exp-sgcheck-amd64-linux.so vgpreload_exp-sgcheck-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-sgcheck'
+Making install in exp-bbv
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+mkdir -p ../.in_place; \
+	for f in exp-bbv-amd64-linux exp-bbv-x86-linux ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../exp-bbv/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../exp-bbv/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in exp-bbv-amd64-linux exp-bbv-x86-linux; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+Making install in .
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+Making install in x86
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86'
+Making install in x86-linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86-linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86-linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86-linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/x86-linux'
+Making install in amd64-linux
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/amd64-linux'
+make[5]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/amd64-linux'
+make[5]: Nothing to be done for `install-exec-am'.
+make[5]: Nothing to be done for `install-data-am'.
+make[5]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/amd64-linux'
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests/amd64-linux'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-bbv'
+Making install in exp-dhat
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+Making install in .
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+mkdir -p ../.in_place; \
+	for f in exp-dhat-amd64-linux exp-dhat-x86-linux vgpreload_exp-dhat-amd64-linux.so vgpreload_exp-dhat-x86-linux.so ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../exp-dhat/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../exp-dhat/$f.dSYM ../.in_place; \
+	done
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in exp-dhat-amd64-linux exp-dhat-x86-linux vgpreload_exp-dhat-amd64-linux.so vgpreload_exp-dhat-x86-linux.so; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+Making install in tests
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat/tests'
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat/tests'
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat/tests'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/exp-dhat'
+Making install in tests
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/tests'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/tests'
+Making install in perf
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/perf'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/perf'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/perf'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/perf'
+Making install in gdbserver_tests
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/gdbserver_tests'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/gdbserver_tests'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/gdbserver_tests'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/gdbserver_tests'
+Making install in auxprogs
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/auxprogs'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/auxprogs'
+test -z "/usr/local/bin" || /bin/mkdir -p "/usr/local/bin"
+  /usr/bin/install -c 'valgrind-listener' '/usr/local/bin/valgrind-listener'
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/auxprogs'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/auxprogs'
+Making install in mpi
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/mpi'
+mkdir -p ../.in_place; \
+	for f in   ; do \
+	  rm -f ../.in_place/$f; \
+	  ln -f -s ../mpi/$f ../.in_place; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+mkdir -p ../.in_place; \
+	for f in ; do \
+	  rm -f ../.in_place/$f.dSYM; \
+	  ln -f -s ../mpi/$f.dSYM ../.in_place; \
+	done
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/mpi'
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in  ; do \
+	  /usr/bin/install -c $f /usr/local/lib/valgrind; \
+	done
+for f in ; do \
+	  if [ ! -e $f.dSYM  -o  $f -nt $f.dSYM ] ; then \
+	      echo "dsymutil $f"; \
+	      dsymutil $f; \
+	  fi; \
+	done
+/bin/sh /home/symbolic/Desktop/fuzzgrind/valgrind-r12356/install-sh -d /usr/local/lib/valgrind; \
+	for f in ; do \
+	  cp -R $f.dSYM /usr/local/lib/valgrind; \
+	done
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/mpi'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/mpi'
+Making install in docs
+make[2]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+make[3]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+make[3]: Nothing to be done for `install-exec-am'.
+make  install-data-hook
+make[4]: Entering directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+set -e; \
+	if test -r html ; then \
+		mkdir -p /usr/local/share/doc/valgrind; \
+		cp -r html /usr/local/share/doc/valgrind; \
+	fi
+for f in *.1 ; do \
+		if test -r $f ; then \
+			mkdir -p /usr/local/share/man/man1; \
+			cp $f /usr/local/share/man/man1; \
+		fi \
+	done
+set -e; \
+	if test -r index.pdf ; then \
+		mkdir -p /usr/local/share/doc/valgrind; \
+		cp index.pdf /usr/local/share/doc/valgrind/valgrind_manual.pdf; \
+	fi
+set -e; \
+	if test -r index.ps ; then \
+		mkdir -p /usr/local/share/doc/valgrind; \
+		cp index.ps /usr/local/share/doc/valgrind/valgrind_manual.ps; \
+	fi
+make[4]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+make[3]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+make[2]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356/docs'
+make[1]: Leaving directory `/home/symbolic/Desktop/fuzzgrind/valgrind-r12356'

@@ -1,0 +1,14 @@
+<catalog>
+	<func id='1'>
+		<name>strcpy</name>
+		<type>unsafe buffer copy function</type>
+		<rank>high</rank>
+		<description>check to be sure that the 2 argument passed to this fucntion call will not copy more data than can be handled!</description>
+	</func>
+	<func id='2'>
+		<name>strcat</name>
+		<type>unsafe buffer connect function</type>
+		<rank>high</rank>
+		<description>check to be sure that the 2 argument passed to this fucntion call will not copy more data than can be handled!</description>
+	</func>
+</catalog>

@@ -1,0 +1,46 @@
+1. Some notes about hufc
+------------------------
+
+hufc is a utility to compress or expand files. It is based on Huffman
+coding, so don't expect surprising compression ratios. I wrote it for
+fun and because I wanted to know how a compressor works in practice.
+Doing this was very useful as I could also use hufc for some subjects
+when I was studying at university. Names of compressed files will be
+the same as before compression, but with the .huf extension.
+
+hufc can use the CRC-16 CCITT algorithm or the IP checksum for error
+detection. They both have been implemented in plain C and in assembly
+language for the x86 architecture. Read file INSTALL to learn how to
+select between C and assembly language.
+
+Files compressed with hufc are not endian dependent, so little and big
+endian systems can share them. Anyway, if you plan to use hufc in a big
+endian machine, don't forget to read file INSTALL.
+
+
+2. The `util' directory
+-----------------------
+
+Here you can find the following utilities:
+
+* `genccitt.c' - It generates the CRC-16 CCITT lookup table.
+* `bench.c'    - You can use it for comparing in speed the C version of
+                 CRC and checksum with the corresponding one in assembly.
+                 This program is very short and intuitive, so edit the
+                 code and run your tests.
+* `test.c'     - It computes the CRC and checksum of a byte sequence
+                 passed as a command-line argument.
+
+Keep in mind that `bench' and `test' will use C or assembly depending on
+hufc. For example, if hufc uses the assembly version of checksum, `bench'
+and `test' will also use it. That's why you must configure hufc firstly.
+
+For compilation write in the shell `make genccitt', `make bench' or `make
+test', or simply `make' if you want to compile the three programs at the
+same time. Other options are:
+
+* `make strip' to strip the programs
+* `make cleanobjs' to delete unnecessary files created during compilation
+* `make cleanall' to delete all files created during compilation
+
+Happy huffing!

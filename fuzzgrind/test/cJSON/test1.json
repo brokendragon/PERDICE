@@ -1,0 +1,13 @@
+{
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+                "GlossEntry": {
+					"SortAs": "SGML",
+					"GlossDef": {
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+        }
+}

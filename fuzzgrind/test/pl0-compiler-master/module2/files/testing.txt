@@ -1,0 +1,18 @@
+var m, n, k, count;
+
+begin
+    m :=< 1;
+    n := 1;  /* Comment. */
+    count := 0;
+    
+    while count <= 20 do
+    begin
+        k := n;
+        n := m + n;
+        m := k;	/* This is a comment! */
+        
+        ! k;
+        
+        count := count + 1
+    end
+end.

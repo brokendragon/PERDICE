@@ -1,0 +1,29 @@
+1. How to install hufc
+----------------------
+
+Compiling and installing hufc is an easy task as you'll see. You should
+follow these steps:
+
+* ./configure
+* make
+* make install
+
+Once installed, type `hufc -h' to see the different command line arguments
+of hufc.
+
+
+2. Tuning your installation
+---------------------------
+
+The default installation directory is `/usr/local/bin'. You can change it
+by running `./configure --prefix=/yourchoice'.
+
+If you want to use the assembly versions of CRC and checksum, just run
+`./configure --enable-x86asm'.
+
+If you are installing hufc in a big endian machine, you must run
+`./configure --enable-big-endian'. This is necessary for the
+correct operation of the checksum.
+
+THIS SHOULD WORK, BUT I DON'T HAVE ACCESS TO A BIG ENDIAN MACHINE TO
+TRY IT OUT.

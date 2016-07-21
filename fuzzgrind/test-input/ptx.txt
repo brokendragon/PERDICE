@@ -1,0 +1,12 @@
+CFLAGS=-Wall -g -O2 -m32
+OBJ=test md5 example ms08_067 strcmp
+
+all: $(OBJ)
+
+test: test.c
+
+strcmp: strcmp.c
+	$(CC) -O0 $(CFLAGS) -o $@ $^
+
+clean:
+	rm -f *~ $(OBJ)
