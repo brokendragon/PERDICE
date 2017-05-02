@@ -197,13 +197,7 @@ def score_cache(progname, progarg, input_file, taint_stdin=False):
     
     p = subprocess.Popen(arg_valgrind + arg_prog, stdin=stdin, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = p.communicate()
-    '''
-    line_info_filename = '%s%d-line-info.txt' %(PARAM['LINE_FOLDER'], line_num)
-    report_line_info = open(line_info_filename, 'w')
-    report_line_info.write(stderr)
-    report_line_info.close()
-    line_num += 1
-    '''
+
     line_score = {}
 
     for lines in stderr.split('*****'):
@@ -228,11 +222,7 @@ def score_cache(progname, progarg, input_file, taint_stdin=False):
             if m6:
                 value4 = int(re.sub(',', '', m6.group(1)))
                 break
-        '''   
-        if file not in g_filename.keys():
-            g_filename[file] = g_num
-            g_num += 1
-        '''   
+  
         score = (value1+value2)*1+value3*20+value4*3
         #line_score[(g_filename[file],linenum)] = score
         line_score[(file,linenum)] = score
