@@ -29,3 +29,9 @@ The report that represents the total score after every symbolic execution is put
 The detail score of every source code line is put in test-input/line-info/
 Our main code in the file fuzz/cache.py and valgrind-r12356/cachegrind/cg_main.c
 
+/fuzz/cache.py: PERDICE
+/fuzz/fuzz-g.py：generational search
+/fuzz/depth.py: depth-first search
+/fuzz/breadth.py: breadth-first search
+/fuzz/rand.py: random search
+/s2e.py: s2e test

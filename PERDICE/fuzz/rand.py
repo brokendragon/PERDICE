@@ -15,6 +15,8 @@ import subprocess
 import sys
 import random
 import cPickle as pickle
+import time
+import thread
 
 from config import *
 from valgrind import *
@@ -174,19 +176,15 @@ def compute_path_constraint(input_file):
 
     
 def random_score():
-    # give the score of selected input randomly
     return random.randint(0, 200000)
     
 
-def score(progname, progarg, input_file, taint_stdin=False):
-    '''
-    get the cache miss and branch mispredict of every source code line by cachegrind 
-    and compute the score
-    '''
+def score_cache(progname, progarg, input_file, taint_stdin=False):
+    
     #global g_filename, g_num
     
-    CACHEGRIND = './valgrind-r12356/build/bin/valgrind'
-    arg_valgrind = [ CACHEGRIND, '--tool=cachegrind', '--branch-sim=yes' ]
+    FUZZGRIND = './valgrind-r12356/build/bin/valgrind'
+    arg_valgrind = [ FUZZGRIND, '--tool=cachegrind', '--branch-sim=yes', '--cachegrind-out-file=cachegrind-out']
     arg_prog = [ progname, input_file ]
     
     if not progarg:
@@ -293,10 +291,10 @@ def compute_score(base_comparison):
   
 def write_report(score, input):
     
-    report_filename = '%sreport.txt' % PARAM['REPORT_FOLDER']
+    report_filename = '%s%s-report.txt' % (PARAM['REPORT_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     report_score = open(report_filename, 'a')
     
-    report_str= "score:%d, input: %s\n" %(score, input.filename.split('/')[-1])
+    report_str= "score:%d, input: %s, time:%f\n" %(score, input.filename.split('/')[-1], time.time())
     report_score.write(report_str)
     report_score.close()    
     
@@ -305,7 +303,7 @@ def write_lineinfo():
     global base_comparison
     #global report_num 
     
-    report_name='%slineinfo.txt' % PARAM['LINE_FOLDER']
+    report_name='%s%s-lineinfo.txt' % (PARAM['LINE_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     line_info = open(report_name, 'w')
     #info = deepcopy(base_comparison)
     #info.sort(key = lambda x: x[1][0])
@@ -461,7 +459,7 @@ def search(target, worklist, callbacks):
         input = worklist.pop()
         #print '[+] input %s' % input.filename
             
-        score(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
+        score_cache(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
         
         if is_first_expandExecution:
             
@@ -515,64 +513,92 @@ def search(target, worklist, callbacks):
 
 
 def usage():
-    print 'Usage: %s <parameter name>' % sys.argv[0]
-    print '  -h --help\t\t\tshow summary of options'
-    print '  -c --config\t\t\tconfiguration file'
-    print '  -o --subsumption\t\tactivate constraint subsumption'
-    print '  -s --session\t\t\tload saved session if present'
-    print '  -l --last [vg_output_i.txt]\tdebug on last valgrind output'
-    print '  -v --verif\t\t\tverify that constraints are coherent'
+    print 'Usage: %s <parameter name> prog_name \n ' % sys.argv[0]
+
+    print '  -h --help\t\tshow summary of options'
+    print '  -f --func=\t\tselect a specific function to symbolic execute'
+    print '  -o --obj=\t\tconstraint the symbolic execution in some choosen objects, this must be used simultaneously with the -f option'
+    print '---Note:different objects split with "," like 1.so,2.so\n'
+    print '  -t --time=\t\tspecify the running time,if this parameter is set, the execution will stop after the given time.'
+
     sys.exit(0)
-            
-            
+
+
+def timer(t,flag):
+
+    if (not flag):
+        thread.exit()
+    start_exec = time.time()
+
+    while(True):
+        time.sleep(2)            
+        if(time.time() - start_exec > float(t*3600)):
+            thread.interrupt_main()
+            thread.exit()
+
 if __name__ == '__main__':
 
     sym_module = ""
     object_list = ""
     is_symbolize = False;
+    run_time = 0
+
+    time_flag = False
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hcsl:ov', ['help', 'config', 'session', 'last', 'subsumption', 'verif'])
+        opts, args = getopt.getopt(sys.argv[1:], 'hsf:o:t:', ['help','symbolize','func=','obj=','time='])
     except getopt.GetoptError, err:
         print str(err)
         usage()
         sys.exit(-1)
-        
-    if len(args) != 1:
+
+    if(len(args) != 1):
         usage()
         sys.exit(-1)
-    
+
+    target = args[0]
+
+    for name,value in opts:
+        if name in ('-f',"--func"):
+            sym_module = value
+            print "func ",sym_module
+            continue
+        if name in ('-o','--obj'):
+            object_list = value
+            print "obj_lists",object_list
+            continue
+        if name in ('-h','--help'):
+            usage()
+            sys.exit(-1)
+            continue
+        if name in ('-s','--symbolize'):
+            is_symbolize = True
+            continue
+        if name in ('-t','--time'):
+            time_flag = True
+            run_time = value
+            print "time ",run_time
+            print "flag ",time_flag
+            continue
+        else:
+            assert False,'unhandled options!'
+    if sym_module == "" and object_list != "":
+        print "you need to use -f to specify the function if you want to use -o/--obj option!"
+        sys.exit(-1)
+
     configfile = 'fuzz/settings.cfg'
     worklist               = None
     DEBUG_LAST             = False
     VERIF_SOLVABLE         = False
-    CONSTRAINT_SUBSUMPTION = False
-    for o, a in opts:
-        if o in ('-h', '--help'):
-            usage()
-            sys.exit(0)
-        elif o in ('-c', '--config'):
-            configfile = args[0]
-        elif o in ('-s', '--session'):
-            PARAM, ninput, worklist = session.load(args[0])
-            if not worklist:
-                print 'Fuzzing done'
-                sys.exit(0)
-        elif o in ('-l', '--last'):
-            DEBUG_LAST = a
-        elif o in ('-o', '--subsumption'):
-            CONSTRAINT_SUBSUMPTION = True
-        elif o in ('-v', '--verif'):
-            VERIF_SOLVABLE = True
-        else:
-            assert False, 'unhandled option'
-            
-    target = args[0]
+    CONSTRAINT_SUBSUMPTION = False      
     
     if not worklist:
         PARAM = get_config(configfile, target)
         ninput = PARAM.get('N', 0)
-        input_seed = Input(0, PARAM['INPUT_FILE'], PARAM.get('MIN_BOUND', 0), 0)
+        input_seed = Input(0, PARAM['INPUT_FILE'], PARAM.get('MIN_BOUND', 0))
         worklist = [ input_seed ]
-    
+
+    #thread.start_new_thread(timer,(100, True))
     search(target, worklist, [ None ] * 10)
+
+

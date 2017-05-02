@@ -18,14 +18,25 @@ from valgrind import *
 from stp import *
 from fault_checker import *
 
+report = None #record output report
+file_t = None #record the time used for every input
 
 MAX_DEPTH = 5000
 MIN_DEPTH = -1
 test_round = 0
 
-#pop_depth = MIN_DEPTH
-path = []
+depth_stack = [] # 深度搜索栈
+'''
+深度栈格式
+[0,1,2,3]
+'''
 
+pop_depth = MIN_DEPTH
+path = []
+fault_info = [] 
+'''
+路径上的漏洞约束信息，{'file': fault_file, 'type': fault_type, 'line_num': line_num}
+'''
 #index = 0
 
 EXPR = 1
@@ -38,15 +49,18 @@ g_filename = {}  #存储每条路径对应的文件名，将其转化为数字�
 g_num = 0
 
   
-def normal_handlePC(pc,stp,constraints):
+def normal_handlePC(pc,c_index,c_vul_index,stp,constraints):
     '''
     @jin
     功能：
     参数： 
         pc          :   路径约束，compute_path_constraint 的返回值
+        c_index     :   路径索引
+        c_vul_index :   约束索引
         stp         :   stp实例
         constraints :   路径约束
     '''
+    global depth_stack,vul_stack,pop_depth
     jin = 0
     j = 1
     
@@ -54,10 +68,14 @@ def normal_handlePC(pc,stp,constraints):
         
         if (taken==0 or taken==2):
             c = 'Not1(%s)' % c
-     
+            
+        #start_v =  time.time()
+        #print "before parse %s\n" % c
         expr = parse_expr(c)
-
+        #print "after parse %s\n" % expr.pp()
+        #print "parse_expr cost :",str(time.time()-start_v)
         jin = jin + 1
+        #feng add
         if(expr==None):             #返回为空表明这个约束是无法处理的，我们将其从PC中移除
             #print "\na usefulness or unhandled constraints\nconstraints: %s\n" %(c)
             if (taken ==0 or taken==2 ):
@@ -71,6 +89,62 @@ def normal_handlePC(pc,stp,constraints):
         stp.first_cmp = True # XXX - dirty
         os.write(sys.stdout.fileno(), '%s%d' % ('\b' * len(str(j - 1)),j))
         j += 1
+  
+def depth_handlePC(pc,c_index,c_vul_index,stp,constraints):
+    '''
+    @jin
+    功能：处理路径约束，将二元路径约束(c，taken)转为一元约束，同时对原始的约束表达式进行解析
+    如果解析后的约束暂时无法处理，将其从PC中移除；否则，依据约束类型的不同，形成路径约束栈和
+    漏洞约束栈，并将约束加入到STP实例中
+    参数： 
+        pc          :   路径约束，compute_path_constraint 的返回值
+        c_index     :   路径索引
+        c_vul_index :   约束索引
+        stp         :   stp实例
+        constraints :   路径约束
+    '''
+    global depth_stack,vul_stack,pop_depth
+    jin = 0
+    j = 1
+    
+    for (c, taken) in pc:           #将二元约束改为一元约束，同时根据二元约束中约束的真假建立路径真值表
+        #print "index: %d\n" % jin
+        if (taken==0 or taken==2):
+            c = 'Not1(%s)' % c
+            
+        #start_v =  time.time()
+        #print "before parse %s\n" % c
+        expr = parse_expr(c)
+        #print "after parse %s\n" % expr.pp()
+        #print "parse_expr cost :",str(time.time()-start_v)
+        jin = jin + 1
+        #feng add
+        if(expr==None):             #返回为空表明这个约束是无法处理的，我们将其从PC中移除
+            #print "\na usefulness or unhandled constraints\nconstraints: %s\n" %(c)
+            if (taken ==0 or taken==2 ):
+                c = c[5:-1]
+            xx = (c,taken)
+            pc.remove(xx)
+            continue
+
+        if taken < 2:
+            if pop_depth >= c_index:
+                c_index = c_index + 1
+            else:
+                depth_stack.append(c_index)     #深度栈每次只将大于上次弹出深度的约束加入其中
+                c_index = c_index + 1
+        else :
+            vul_stack.append((c_vul_index,c_index-1))
+            c_vul_index = c_vul_index + 1
+
+        if(EXPR):
+            print("expr:",expr.pp())
+        constraints = contraint_subsumption(constraints, expr, stp, taken)  #在STP中加入该约束
+        #print "len(constraints): %d\n" % len(constraints)
+        stp.first_cmp = True # XXX - dirty
+        os.write(sys.stdout.fileno(), '%s%d' % ('\b' * len(str(j - 1)),j))
+        j += 1
+
 
 def runSymbolizeCheck(prog,prog_arg,input_file_name):
     '''
@@ -177,21 +251,20 @@ def contraint_subsumption(constraints, new_c, stp):
         #print '    ! %s. Skipping constraint!' % error,
         return result
     stp.query.append(stp_formula)
-
+    #add by jin
+    # taken < 2 indicates that the constraints is branch constraints, otherwise is the vul constraints
+    # added taken flag to distinguish the constraints kind
     result.append({ 'expr': new_c, 'n': len(stp.query) - 1 })
 
     return result
 
 
-def score(progname, progarg, input_file, taint_stdin=False):
-    '''
-    get the cache miss and branch mispredict of every source code line by cachegrind 
-    and compute the score
-    '''
+def score_cache(progname, progarg, input_file, taint_stdin=False):
+    
     #global g_filename, g_num
     
-    CACHEGRIND = './valgrind-r12356/build/bin/valgrind'
-    arg_valgrind = [ CACHEGRIND, '--tool=cachegrind', '--branch-sim=yes' ]
+    FUZZGRIND = './valgrind-r12356/build/bin/valgrind'
+    arg_valgrind = [ FUZZGRIND, '--tool=cachegrind', '--branch-sim=yes', '--cachegrind-out-file=cachegrind-out' ]
     arg_prog = [ progname, input_file ]
     
     if not progarg:
@@ -298,7 +371,7 @@ def compute_score(base_comparison):
   
 def write_report(score, input):
     
-    report_filename = '%sreport.txt' % PARAM['REPORT_FOLDER']
+    report_filename = '%s%s-report.txt' % (PARAM['REPORT_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     report_score = open(report_filename, 'a')
     
     report_str= "score:%d, input: %s\n" %(score, input.filename.split('/')[-1])
@@ -309,7 +382,7 @@ def write_report(score, input):
 def write_lineinfo():
     global base_comparison
     
-    report_name='%slineinfo.txt' % PARAM['LINE_FOLDER']
+    report_name='%s%s-lineinfo.txt' % (PARAM['LINE_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     line_info = open(report_name, 'w')
     l = sorted(base_comparison.iteritems(),key=lambda d: d[1][0], reverse=True)
     for i in range(len(l)):
@@ -326,6 +399,13 @@ def compute_path_constraint(input_file):
     @type  input_file: str
     @return str list
     '''
+    # global test_index
+    # global fault_info
+
+    #pos = 0
+    #'%s%d%s' % (PARAM['OUTPUT_FOLDER'], ninput, PARAM['EXTENSION'])
+    # str_file_name = '%s%d%s.txt'%(PARAM['OUTPUT_FOLDER'],test_index,'_path')
+    # test_path_file = open(str_file_name,'wa')
 
     output_filename = run_valgrind(PARAM['PROGNAME'],
                                        PARAM['PROGARG'],
@@ -344,6 +424,9 @@ def compute_path_constraint(input_file):
 
     pc = []
     fp = open(output_filename, 'r')
+    # line_count = 1;
+    # path_constraint = []
+    # fault_info = []
 
     for line in fp:
         m = re.match('\[\+\] 0x[0-9]+.* depending of input: if \((.*)\) => (\d)', line)
@@ -363,6 +446,8 @@ def compute_path_constraint(input_file):
             
     fp.close()
         
+    # for cons in pc:
+        # print "cons:",cons
     return pc
 
 
@@ -376,21 +461,27 @@ def expand_execution(input, callbacks):
     @return new inputs
     '''
 
-    global ninput, path
-    global query_t,stp_t
+    global ninput, pop_depth, path, vul_input_num
+    global query_t,stp_t,report
     global start
     global total_t
     global test_index
+    #global vul_stp_cache,expected_path_cons,current_path_cons
+    global file_t
 
     stp = STP()
+    threshold = 0
     constraints = []
     child_inputs = []
 
     # compute path constraint
+    #add by Luo
 
     print '[+] expanding execution with file %s ' % input.filename.split('/')[-1]
-
+    #start_v =  time.time()
     pc = compute_path_constraint(input.filename)
+    #query_t = query_t + (time.time() - start_v)
+    #print "compute_path_constraint time is ",str(time.time()-start_v)
 
     # parse valgrind's output and do constraint subsumption
 
@@ -399,9 +490,16 @@ def expand_execution(input, callbacks):
     j = 1
     path_temp = [] #print the path of the current test input
 
-    #处理解析约束
-    normal_handlePC(pc,stp,constraints)
+    c_index = 0;
+    c_vul_index = 0;
+    
+    #处理解析约束，建立路径约束栈和漏洞约束栈
+    #depth_handlePC(pc,c_index,c_vul_index,stp,constraints)
+    normal_handlePC(pc,c_index,c_vul_index,stp,constraints)
 
+    #index += 1
+    #print '    * %d path constraints' % (c_index)
+    #print '    * %d vul constraints' % (c_vul_index)
     os.write(sys.stdout.fileno(), '%s' % '\b' * (len(str(j - 1)) + 6))
 
     # all queries are computed, there will not be change anymore, so we can
@@ -411,11 +509,18 @@ def expand_execution(input, callbacks):
         
     if depth > len(constraints):
         return child_inputs
+    #stp.query = []
+    #print 'len(depth_stack)',len(depth_stack),"\n"
     
     for index in range(depth, len(constraints)):
         
         stp.query = []              #置空STP query 根据栈深度加入本次求解约束
         for k in range(0, index+1):
+            # try:
+                # stp.query += [ constraints[k]['stp'] ]
+            # except IndexError:
+                # print "k %d\n" %k
+                # raise
             stp.query += [ constraints[k]['stp'] ]
         if len(stp.query) == 0:
             continue
@@ -455,12 +560,13 @@ def expand_execution(input, callbacks):
 
 
 def search(target, worklist, callbacks):
-    global ninput,test_index, depth, test_round
+    global ninput,test_index,vul_input_num, depth, test_round
     global run_times_flag
     global start
     global total_t
     global stp_t
     global query_t
+    global file_t,report
     global is_first_expandExecution, base_comparison
     test_index = 0
 
@@ -469,6 +575,11 @@ def search(target, worklist, callbacks):
     fp3=open('run_times.txt','w')
     fp3.seek(0)
     fp3.write(str(run_times_flag))
+
+    # report = open('./analysis/%s-report'%(PARAM['PROGNAME'][9:]),"w")
+
+    # if report == None :
+        # print "report file create failed\n"
 
     while len(worklist) > 0:
         keys = worklist.keys()
@@ -485,7 +596,7 @@ def search(target, worklist, callbacks):
         if input == None:
             break
 
-        score(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
+        score_cache(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
         
         if is_first_expandExecution:
             
@@ -495,12 +606,13 @@ def search(target, worklist, callbacks):
         else:
             base_comparison = base_update(input) 
         
-        input_score = compute_score(base_comparison) #compute the score of selected input 
+        input_score = compute_score(base_comparison)
         write_report(input_score, input)
         write_lineinfo()
         
         child_inputs = expand_execution(input, callbacks)
 
+        #feng add
         if(child_inputs==None):
             continue
 
@@ -544,7 +656,8 @@ def search(target, worklist, callbacks):
         fp3.write(str(run_times_flag))
 
     fp3.close()
-
+    #file_t.close()
+    #report.close()
     os.remove('run_times.txt')
 
     total_t = (time.time() - start)
@@ -552,6 +665,7 @@ def search(target, worklist, callbacks):
     print "\nTotal running time is %s S\nSTP execute time is %s S\nValgrind query time is %s S\n"%(round(total_t,2),round(stp_t,2),round(query_t,2))
 
     print "Total test input is %d \n" % ninput
+    print "Total vul input is %d \n" % vul_input_num
 def usage():
     print 'Usage: %s <parameter name> prog_name \n ' % sys.argv[0]
 
@@ -632,6 +746,7 @@ if __name__ == '__main__':
     total_t = 0
     query_t = 0
     stp_t = 0
+    vul_input_num = 0
     start = time.time()
 
     if not worklist:
@@ -648,5 +763,9 @@ if __name__ == '__main__':
         print "\nTotal running time is %s S\nSTP execute time is %s S\nValgrind query time is %s S\n"%(round(total_t,2),round(stp_t,2),round(query_t,2))
 
         print "Total test input is %d \n"%ninput
+        print "Total vul input is %d \n" % vul_input_num
         thread.exit()
 
+
+    # if(report!=None):
+        # report.close();

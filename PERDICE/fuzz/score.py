@@ -87,7 +87,7 @@ def scoreMs(progname, progarg, input_file, taint_stdin=False):
  
     #total = heap1 + heap2
     fp.close()
-    print "total:",total
+    #print "total:",total
     return total
 
 

@@ -18,7 +18,6 @@ from valgrind import *
 from stp import *
 from fault_checker import *
 
-
 MAX_DEPTH = 5000
 MIN_DEPTH = -1
 test_round = 0
@@ -42,7 +41,7 @@ EXPR = 0
 is_first_expandExecution = True #indicates that it is the first expand_execution
 base_comparison = {} #as the basic standard to compute the cache missing increment of every path
                      #its format:{(file, linenum): [score, x.txt]}
-                     
+             
 g_filename = {}  #存储每条路径对应的文件名，将其转化为数字存储
 g_num = 0
 
@@ -205,143 +204,6 @@ def contraint_subsumption(constraints, new_c, stp):
     result.append({ 'expr': new_c, 'n': len(stp.query)-1})
 
     return result
-
-
-def score(progname, progarg, input_file, taint_stdin=False):
-    '''
-    get the cache miss and branch mispredict of every source code line by cachegrind 
-    and compute the score
-    '''
-    #global g_filename, g_num
-    
-    CACHEGRIND = './valgrind-r12356/build/bin/valgrind'
-    arg_valgrind = [ CACHEGRIND, '--tool=cachegrind', '--branch-sim=yes' ]
-    arg_prog = [ progname, input_file ]
-    
-    if not progarg:
-        arg_prog = [ progname ]
-        if not taint_stdin:
-            arg_prog.append(input_file)
-    else:
-        progarg = re.sub('\$input', input_file, progarg)
-        progarg = progarg.split()
-        arg_prog = [ progname ] + progarg
-
-    if not taint_stdin:
-        stdin = None
-    else:
-        stdin = open(input_file, 'r')
-    
-    p = subprocess.Popen(arg_valgrind + arg_prog, stdin=stdin, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = p.communicate()
-
-    line_score = {}
-
-    for lines in stderr.split('*****'):
-        
-        for line in lines.split('\n'):
-            m1 = re.match('file:\s+(.*)', line)
-            m2 = re.match('==\d+==\s+line:\s+([\d,]+)', line)
-            m3 = re.match('==\d+==\s+I1\s+misses:\s+([\d,]+)', line)
-            m4 = re.match('==\d+==\s+D1\s+misses:\s+([\d,]+)', line)
-            m5 = re.match('==\d+==\s+LL misses:\s+([\d,]+)', line)
-            m6 = re.match('==\d+==\s+Mispredicts:\s+([\d,]+)', line)
-            if m1:
-                file = m1.group(1)
-            if m2:
-                linenum = int(re.sub(',', '', m2.group(1)))
-            if m3:
-                value1 = int(re.sub(',', '', m3.group(1)))
-            if m4:
-                value2 = int(re.sub(',', '', m4.group(1)))
-            if m5:
-                value3 = int(re.sub(',', '', m5.group(1)))
-            if m6:
-                value4 = int(re.sub(',', '', m6.group(1)))
-                break
-        '''    
-        if file not in g_filename.keys():
-            g_filename[file] = g_num
-            g_num += 1
-        '''    
-        score = (value1+value2)*1+value3*20+value4*3
-        #line_score[(g_filename[file],linenum)] = score
-        line_score[(file,linenum)] = score
-    
-    info_file="./info/"+input_file.split('/')[-1]
-    
-    info_fp = open(info_file, 'w')
-    pickle.dump(line_score,info_fp)
-    info_fp.close()
-
-
-def get_base(input):
-
-    #get the first base_comparison
-    global base_comparison
-    
-    fp=open("./info/"+input.filename.split('/')[-1],'r')
-    line_score = pickle.load(fp)
-    fp.close()
-    
-    for key in line_score.keys():
-        base_comparison[key] = [line_score[key], input.filename.split('/')[-1]]
- 
-    return base_comparison
-    
-    
-def base_update(input):
-
-    #update the base_comparison after the input selected
-    global base_comparison
-
-    base = {}
-    fp=open("./info/"+input.filename.split('/')[-1],'r')
-    line_score = pickle.load(fp)
-    fp.close()
-    
-    for key in line_score.keys():
-        if key not in base_comparison.keys():
-            base[key] = [line_score[key], input.filename.split('/')[-1]]
-         
-        if key in base_comparison.keys() and line_score[key] > base_comparison[key][0]:
-            base_comparison[key] = [line_score[key], input.filename.split('/')[-1]]
-    
-    base_comparison.update(base)
-    
-    return base_comparison
-
-   
-def compute_score(base_comparison):
-
-    score = 0
-    for key in base_comparison.keys():
-        score += base_comparison[key][0]**2
-
-    return score
-    
-  
-def write_report(score, input):
-    
-    report_filename = '%sreport.txt' % PARAM['REPORT_FOLDER']
-    report_score = open(report_filename, 'a')
-    
-    report_str= "score:%d, input: %s\n" %(score, input.filename.split('/')[-1])
-    report_score.write(report_str)
-    report_score.close()
-    
-
-def write_lineinfo():
-    global base_comparison
-    #global report_num 
-    
-    report_name='%slineinfo.txt' % PARAM['LINE_FOLDER']
-    line_info = open(report_name, 'w')
-    l = sorted(base_comparison.iteritems(),key=lambda d: d[1][0], reverse=True)
-    for i in range(len(l)):
-        report_str= "file:%s, linenum:%d, score:%d, input:%s\n" %(l[i][0][0], l[i][0][1], l[i][1][0], l[i][1][1])
-        line_info.write(report_str)
-    line_info.close()
   
   
 def compute_path_constraint(input_file):
@@ -399,6 +261,158 @@ def compute_path_constraint(input_file):
     return pc
 
 
+
+def score_cache(progname, progarg, input_file, taint_stdin=False):
+    '''
+    get the cache miss and branch mispredict counts of every source code line by cachegrind 
+    and compute the score
+    '''
+    #global g_filename, g_num
+
+    CACHEGRIND = './valgrind-r12356/build/bin/valgrind'
+    arg_valgrind = [ CACHEGRIND, '--tool=cachegrind', '--branch-sim=yes', '--cachegrind-out-file=cachegrind-out']
+    arg_prog = [ progname, input_file ]
+    
+    if not progarg:
+        arg_prog = [ progname ]
+        if not taint_stdin:
+            arg_prog.append(input_file)
+    else:
+        progarg = re.sub('\$input', input_file, progarg)
+        progarg = progarg.split()
+        arg_prog = [ progname ] + progarg
+
+    if not taint_stdin:
+        stdin = None
+    else:
+        stdin = open(input_file, 'r')
+    
+    p = subprocess.Popen(arg_valgrind + arg_prog, stdin=stdin, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = p.communicate()
+    '''
+    line_info_filename = '%s%d-line-info.txt' %(PARAM['LINE_FOLDER'], line_num)
+    report_line_info = open(line_info_filename, 'w')
+    report_line_info.write(stderr)
+    report_line_info.close()
+    line_num += 1
+    '''
+    line_score = {}
+
+    for lines in stderr.split('*****'):
+        
+        for line in lines.split('\n'):
+            m1 = re.match('file:\s+(.*)', line)
+            m2 = re.match('==\d+==\s+line:\s+([\d,]+)', line)
+            m3 = re.match('==\d+==\s+I1\s+misses:\s+([\d,]+)', line)
+            m4 = re.match('==\d+==\s+D1\s+misses:\s+([\d,]+)', line)
+            m5 = re.match('==\d+==\s+LL misses:\s+([\d,]+)', line)
+            m6 = re.match('==\d+==\s+Mispredicts:\s+([\d,]+)', line)
+            if m1:
+                file = m1.group(1)
+            if m2:
+                linenum = int(re.sub(',', '', m2.group(1)))
+            if m3:
+                value1 = int(re.sub(',', '', m3.group(1)))
+            if m4:
+                value2 = int(re.sub(',', '', m4.group(1)))
+            if m5:
+                value3 = int(re.sub(',', '', m5.group(1)))
+            if m6:
+                value4 = int(re.sub(',', '', m6.group(1)))
+                break
+        '''   
+        if file not in g_filename.keys():
+            g_filename[file] = g_num
+            g_num += 1
+        '''   
+        score = (value1+value2)*1+value3*20+value4*3
+        #line_score[(g_filename[file],linenum)] = score
+        line_score[(file,linenum)] = score
+    
+    info_file="./info/"+input_file.split('/')[-1]
+    
+    info_fp = open(info_file, 'w')
+    pickle.dump(line_score,info_fp)
+    info_fp.close()
+
+  
+def get_base(input):
+
+    #get the first base_comparison
+    global base_comparison
+    
+    fp=open("./info/"+input.filename.split('/')[-1],'r')
+    line_score = pickle.load(fp)
+    fp.close()
+    
+    for key in line_score.keys():
+        base_comparison[key] = [line_score[key], input.filename.split('/')[-1]]
+ 
+    return base_comparison
+    
+    
+def base_update(input):
+
+    #update the base_comparison after the input selected
+    global base_comparison
+
+    base = {}
+    fp=open("./info/"+input.filename.split('/')[-1],'r')
+    line_score = pickle.load(fp)
+    fp.close()
+    
+    #compare the score of every corresponding source line of input with the base_comparison, update the base_comparison with the lager score
+    
+    for key in line_score.keys():
+        if key not in base_comparison.keys():
+            base[key] = [line_score[key], input.filename.split('/')[-1]]
+         
+        elif line_score[key] > base_comparison[key][0]:
+            base_comparison[key] = [line_score[key], input.filename.split('/')[-1]]
+    
+    base_comparison.update(base)
+    
+    return base_comparison
+  
+  
+def compute_score(dict):
+
+    # compute the total score of base_comparison after updating
+    
+    score = 0
+    for key in dict.keys():
+        score += dict[key][0]**2
+
+    return score
+    
+  
+def write_report(score, input):
+
+    #report the base_comparison score of every symbolic execution
+    
+    report_filename = '%s%s-report.txt' % (PARAM['REPORT_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
+    report_score = open(report_filename, 'a')
+    
+    report_str= "score:%d, input:%s\n" %(score, input.filename.split('/')[-1])
+    report_score.write(report_str)
+    report_score.close()    
+    
+
+def write_lineinfo():
+
+    #report the detail score of every source line
+
+    global base_comparison
+    
+    report_name='%s%s--lineinfo.txt' % (PARAM['LINE_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
+    line_info = open(report_name, 'w')
+    l = sorted(base_comparison.iteritems(),key=lambda d: d[1][0], reverse=True)
+    for i in range(len(l)):
+        report_str= "file:%s, linenum:%d, score:%d, input:%s\n" %(l[i][0][0], l[i][0][1], l[i][1][0], l[i][1][1])
+        line_info.write(report_str)
+    line_info.close()
+
+
 def expand_execution(input, callbacks):
     '''
     Symbolically execute the program under test with that input, and generate
@@ -423,8 +437,10 @@ def expand_execution(input, callbacks):
     # compute path constraint
 
     print '[+] expanding execution with file %s ' % input.filename.split('/')[-1]
-
+    #compute pc time
+    start_pc = time.time()
     pc = compute_path_constraint(input.filename)
+    query_t = query_t + (time.time()-start_pc)
 
     # parse valgrind's output and do constraint subsumption
 
@@ -543,8 +559,9 @@ def search(target, worklist, callbacks):
     global start
     global total_t
     global stp_t
-    global query_t
+    global query_t,cache_t
     global is_first_expandExecution, base_comparison
+
     test_index = 0
 
 
@@ -556,14 +573,15 @@ def search(target, worklist, callbacks):
     while worklist:
         input = worklist.pop()
         #print '[+] input %s' % input.filename
-
-        score(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
+        start_cache = time.time()
+        score_cache(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
+        cache_t = cache_t + (time.time()-start_cache)
         if is_first_expandExecution:
             base_comparison = get_base(input)
             is_first_expandExecution = False 
         else:
             base_comparison = base_update(input) 
-        
+
         input_score = compute_score(base_comparison)
         write_report(input_score, input)
         write_lineinfo()
@@ -596,7 +614,7 @@ def search(target, worklist, callbacks):
         test_round += 1
         if test_round >= 1000 :
             sys.exit(0)
-            
+           
         run_times_flag += 1
         if run_times_flag > 1:
             run_times_flag = 1
@@ -627,13 +645,14 @@ def usage():
 
 
 def timer(t,flag):
+
     if (not flag):
         thread.exit()
-    start = time.time()
+    start_exec = time.time()
+
     while(True):
-        time.sleep(2)
-        #print "#######\ntime.time() - start %f : t is %d" %(time.time() - start,(int)(t))
-        if(time.time() - start > float(t)):
+        time.sleep(2)            
+        if(time.time() - start_exec > float(t*3600)):
             thread.interrupt_main()
             thread.exit()
 
@@ -694,6 +713,7 @@ if __name__ == '__main__':
     total_t = 0
     query_t = 0
     stp_t = 0
+    cache_t = 0
     start = time.time()
 
     if not worklist:
@@ -701,7 +721,7 @@ if __name__ == '__main__':
         ninput = PARAM.get('N', 0)
         input_seed = Input(0, PARAM['INPUT_FILE'], PARAM.get('MIN_BOUND', 0))
         worklist = [ input_seed ]
-    thread.start_new_thread(timer,(run_time ,time_flag))
+    #thread.start_new_thread(timer,(100, True))
     try:
         search(target, worklist, [ None ] * 10)
     except KeyboardInterrupt:

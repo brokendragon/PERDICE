@@ -52,7 +52,6 @@ class Input:
         self.number = number
         self.filename = filename
         self.bound = bound
-        #self.note = note
         if not bytes:
             self.bytes = get_input(filename)
         else:
@@ -172,15 +171,12 @@ def compute_path_constraint(input_file):
     return pc
 
 
-def cache_score(progname, progarg, input_file, taint_stdin=False):
-    '''
-    get the cache miss and branch mispredict of every source code line by cachegrind 
-    and compute the score
-    '''
+def score_cache(progname, progarg, input_file, taint_stdin=False):
+    
     #global g_filename, g_num
     
-    CACHEGRIND = './valgrind-r12356/build/bin/valgrind'
-    arg_valgrind = [ CACHEGRIND, '--tool=cachegrind', '--branch-sim=yes' ]
+    FUZZGRIND = './valgrind-r12356/build/bin/valgrind'
+    arg_valgrind = [ FUZZGRIND, '--tool=cachegrind', '--branch-sim=yes', '--cachegrind-out-file=cachegrind-out' ]
     arg_prog = [ progname, input_file ]
     
     if not progarg:
@@ -287,7 +283,7 @@ def compute_score(base_comparison):
   
 def write_report(score, input):
     
-    report_filename = '%sreport.txt' % PARAM['REPORT_FOLDER']
+    report_filename = '%s%s-report.txt' % (PARAM['REPORT_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     report_score = open(report_filename, 'a')
     
     report_str= "score:%d, input: %s\n" %(score, input.filename.split('/')[-1])
@@ -297,7 +293,7 @@ def write_report(score, input):
 def write_lineinfo():
     global base_comparison
     
-    report_name='%slineinfo.txt' % PARAM['LINE_FOLDER']
+    report_name='%s%s-lineinfo.txt' % (PARAM['LINE_FOLDER'], PARAM['PROGNAME'].split('/')[-1])
     line_info = open(report_name, 'w')
     l = sorted(base_comparison.iteritems(),key=lambda d: d[1][0], reverse=True)
     for i in range(len(l)):
@@ -448,7 +444,7 @@ def search(target, worklist, callbacks):
     while worklist:
         input = worklist.pop()
         #print '[+] input %s' % input.filename
-        cache_score(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
+        score_cache(PARAM['PROGNAME'], PARAM['PROGARG'], input.filename, PARAM['TAINT_STDIN'])
         
         if is_first_expandExecution:
             
@@ -570,7 +566,7 @@ if __name__ == '__main__':
     if not worklist:
         PARAM = get_config(configfile, target)
         ninput = PARAM.get('N', 0)
-        input_seed = Input(0, PARAM['INPUT_FILE'], PARAM.get('MIN_BOUND', 0), 0)
+        input_seed = Input(0, PARAM['INPUT_FILE'], PARAM.get('MIN_BOUND', 0))
         worklist = [ input_seed ]
     
     search(target, worklist, [ None ] * 10)
